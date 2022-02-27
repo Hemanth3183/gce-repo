@@ -7,4 +7,15 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
- 
+  - gcloud config set project arched-broker-342609
+  - gcloud config set compute/zone asia-southeast1-a
+  - gcloud container clusters get-credentials hemigkecluster
+  - echo "$DOCKER_PWD" | docker login -u "$DOCKER_USERID" --password-stdin
+  - docker build -t hemanth318/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true hemanth318/react-test npm run test -- --coverage
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
