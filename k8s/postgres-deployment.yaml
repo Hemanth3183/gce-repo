@@ -31,3 +31,5 @@ spec:
                 secretKeyRef:
                   name: pgpassword
                   key: PGPASSWORD
+      nodeSelector:
+        environment: PROD
