@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata: 
+  name: dibudpersonal-tls
+spec:
+  secretName: dibudpersonal
+  issuerRef: 
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: dibudpersonal.com
+  dnsNames:
+    - dibudpersonal.com
+    - www.dibudpersonal.com
