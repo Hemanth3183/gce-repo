@@ -17,5 +17,3 @@ spec:
           image: hemanth318/multi-client
           ports:
             - containerPort: 3000
-      nodeSelector:
-        environment: PROD
