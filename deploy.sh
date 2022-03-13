@@ -8,6 +8,6 @@ docker push hemanth318/multi-server:$SHA
 docker push hemanth318/multi-worker:latest
 docker push hemanth318/multi-worker:$SHA
 kubectl apply -f k8s
-kubectl set image deployments/server-deployment server=hemanth318/multi-server:$SHA
-kubectl set image deployments/worker-deployment worker=hemanth318/multi-worker:$SHA
-kubectl set image deployments/client-deployment client=hemanth318/multi-client:$SHA
+kubectl set image deployments/server-deployment server=hemanth318/multi-server:latest
+kubectl set image deployments/worker-deployment worker=hemanth318/multi-worker:latest
+kubectl set image deployments/client-deployment client=hemanth318/multi-client:latest
